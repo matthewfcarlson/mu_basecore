@@ -255,9 +255,8 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
 
     def _GetReleaseForCommit(self, commit_hash: str, n: int = 100):
         if n > 2000:
-            logging.error(
-                "We couldn't find the release branch that we correspond to")
-            raise RuntimeError("Unknown release branch")
+            logging.error("We couldn't find the release branch that we correspond to")
+            return "0.0.0.0"
         git_dir = os.path.dirname(self.sp)
         cmd_args = ["log", '--format="%h %D"', "-n " + str(n)]
         return_buffer = StringIO()
