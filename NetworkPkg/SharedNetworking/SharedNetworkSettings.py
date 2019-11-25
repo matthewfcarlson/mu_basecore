@@ -326,11 +326,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
     def GetActiveScopes(self):
         ''' get scope '''
         scopes = ("corebuild", "sharednetworking_build", )
-        if (GetHostInfo().os == "Linux" and
-            "AARCH64" in self.GetArchSupported() and
-            self.ToolChainTagCacheValue is not None and
-                self.ToolChainTagCacheValue.upper().startswith("GCC")):
-
+        if (GetHostInfo().os == "Linux"):
             scopes += ("gcc_aarch64_linux",)
 
         return scopes
