@@ -324,7 +324,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
 
     def GetActiveScopes(self):
         ''' get scope '''
-        scopes = ("corebuild", "sharednetworking_build", )
+        scopes = ("corebuild", "sharednetworking_build", "project_mu" )
         # if (GetHostInfo().os == "Linux"):
         #    scopes += ("gcc_aarch64_linux",)
 
