@@ -470,7 +470,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
         return "NetworkPkg"
 
     def GetArchitecturesSupported(self):
-        return ["IA32", "X64", "AARCH64"]
+        return ["X64", "IA32", "AARCH64"]
 
     def GetTargetsSupported(self):
         return ["DEBUG", "RELEASE"]
