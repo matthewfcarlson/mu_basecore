@@ -455,7 +455,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
         ''' get WorkspacePath '''
         return self.ws
 
-    def GetModulePkgsPath(self):
+    def GetPackagesPath(self):
         ''' get module packages path '''
         return self.pp
 
