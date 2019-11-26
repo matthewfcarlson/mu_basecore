@@ -325,8 +325,8 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
     def GetActiveScopes(self):
         ''' get scope '''
         scopes = ("corebuild", "sharednetworking_build", )
-        if (GetHostInfo().os == "Linux"):
-            scopes += ("gcc_aarch64_linux",)
+        # if (GetHostInfo().os == "Linux"):
+        #    scopes += ("gcc_aarch64_linux",)
 
         return scopes
 
@@ -512,10 +512,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
 
     def RetrieveCommandLineOptions(self, args):
         '''  Retrieve command line options from the argparser '''
-        if (GetHostInfo().os == "Linux"):
-            shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "GCC5", "Set default")
-        else:
-            shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "VS2017", "Set default")
+        shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "VS2017", "Set default")
         if args.api_key is not None:
             self.api_key = args.api_key
             print("Using API KEY")
