@@ -173,8 +173,8 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
         SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
 
         WORKSPACE_PATH = os.path.dirname(os.path.dirname(SCRIPT_PATH))
-        REQUIRED_REPOS = ('Common/MU_TIANO',
-                          "Silicon/Arm/MU_TIANO")  # todo fix this
+        REQUIRED_REPOS = ['Common/MU_TIANO',
+                          "Silicon/Arm/MU_TIANO"]  # todo fix this
 
         MODULE_PKG_PATHS = os.pathsep.join(os.path.join(
             WORKSPACE_PATH, pkg_name) for pkg_name in REQUIRED_REPOS)
@@ -512,8 +512,10 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
 
     def RetrieveCommandLineOptions(self, args):
         '''  Retrieve command line options from the argparser '''
-        shell_environment.GetBuildVars().SetValue(
-            "TOOL_CHAIN_TAG", "VS2017", "Set default")
+        if (GetHostInfo().os == "Linux"):
+            shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "GCC5", "Set default")
+        else:
+            shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "VS2017", "Set default")
         if args.api_key is not None:
             self.api_key = args.api_key
             print("Using API KEY")
