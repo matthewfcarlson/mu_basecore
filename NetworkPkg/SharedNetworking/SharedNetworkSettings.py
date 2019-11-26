@@ -176,7 +176,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
         REQUIRED_REPOS = ('Common/MU_TIANO',
                           "Silicon/Arm/MU_TIANO")  # todo fix this
 
-        MODULE_PKG_PATHS = ";".join(os.path.join(
+        MODULE_PKG_PATHS = os.pathsep.join(os.path.join(
             WORKSPACE_PATH, pkg_name) for pkg_name in REQUIRED_REPOS)
 
         self.OUTPUT_DIR = os.path.join(WORKSPACE_PATH, "Build", ".NugetOutput")
@@ -455,7 +455,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
         ''' get WorkspacePath '''
         return self.ws
 
-    def GetPackagesPath(self):
+    def GetModulePkgsPath(self):
         ''' get module packages path '''
         return self.pp
 
