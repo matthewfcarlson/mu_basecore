@@ -6,6 +6,8 @@ trigger: none # will disable CI builds entirely
 # Currently don't have the SecMirrorCommon variables
 #variables:
 #- group: SecMirrorCommon
+pool:
+  vmImage: windows-latest
 
 steps:
 - checkout: self
