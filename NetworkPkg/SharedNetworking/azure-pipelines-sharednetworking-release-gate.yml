@@ -61,7 +61,7 @@ steps:
   inputs:
     scriptSource: 'filePath'
     scriptPath: 'NetworkPkg/SharedNetworking/DriverBuilder.py'
-    arguments: '-c NetworkPkg/SharedNetworking/SharedNetworkSettings.py'
+    arguments: '-c NetworkPkg/SharedNetworking/SharedNetworkSettings.py --verbose'
     failOnStderr: false
 
 # Copy the Nuget Package
