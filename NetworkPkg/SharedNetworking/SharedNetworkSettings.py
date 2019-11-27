@@ -512,7 +512,7 @@ class SettingsManager(UpdateSettingsManager, CiSetupSettingsManager, BinaryBuild
 
     def RetrieveCommandLineOptions(self, args):
         '''  Retrieve command line options from the argparser '''
-        shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "VS2017", "Set default")
+        shell_environment.GetBuildVars().SetValue("TOOL_CHAIN_TAG", "VS2019", "Set default")
         if args.api_key is not None:
             self.api_key = args.api_key
             print("Using API KEY")
